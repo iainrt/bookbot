@@ -18,17 +18,22 @@ def char_count(text):
         else:
             output[char] += 1
     return output
+
+def report(text):
+    char_dict = char_count(text)
+    print("--- Begin report of books/frankenstein.txt ---")
+    print(word_count(text), "words found in the document")
+    for key in char_dict:
+        if key.isalpha():
+            print(f"The '{key}' character was found {char_dict[key]} times")
+    print("--- End report ---")
          
 
 path_to_file = "books/frankenstein.txt"
 
 def main(path_to_file):
     text = get_book_text(path_to_file)
-    #print(text)
-    #count = word_count(text)
-    #print(f"word count is {count}")
-    input = char_count(text)
-    print(input)
+    report(text)
 
 main(path_to_file)
     
